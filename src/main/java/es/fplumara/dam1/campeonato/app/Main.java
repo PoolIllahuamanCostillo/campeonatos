@@ -1,4 +1,17 @@
+
 package es.fplumara.dam1.campeonato.app;
+
+import es.fplumara.dam1.campeonato.exception.FicheroInvalidoException;
+import es.fplumara.dam1.campeonato.io.*;
+import es.fplumara.dam1.campeonato.model.*;
+import es.fplumara.dam1.campeonato.repository.DeportistaRepositoryImpl;
+import es.fplumara.dam1.campeonato.repository.ResultadoRepositoryImpl;
+import es.fplumara.dam1.campeonato.service.CampeonatoService;
+
+import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
+
 
 /**
  * Main de ejemplo para demostrar el flujo mínimo del examen (sin menú complejo).
@@ -9,14 +22,25 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Examen DAM1 - Campeonato deportivo (Java 21)");
 
-        /*
+    // 0) Definimos rutas fijas para los ficheros (carpeta data/)
+        Path deportistasCsv = Path.of("data", "deportistas.csv");
+        Path resultadosCsv  = Path.of("data", "resultados.csv");
+        Path rankingCsvOut  = Path.of("data", "ranking.csv"
+
+                /*
          * FLUJO MÍNIMO (lo que debe hacer tu main)
          *
          * 1) Crear repositorios en memoria
          *    - DeportistaRepositoryImpl
          *    - ResultadoRepositoryImpl
-         *
-         * 2) Crear el servicio
+         */
+        DeportistaRepositoryImpl deportistaRepo = new DeportistaRepositoryImpl();
+        ResultadoRepositoryImpl resultadoRepo  = new ResultadoRepositoryImpl();
+
+
+
+
+        /* 2) Crear el servicio
          *    - CampeonatoService (usa ambos repositorios)
          *
          * 3) Leer datos de ficheros (CSV recomendado)
