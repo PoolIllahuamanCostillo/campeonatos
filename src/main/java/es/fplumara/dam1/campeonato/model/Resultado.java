@@ -11,6 +11,9 @@ public class Resultado implements Puntuable{
     private String idDeportista;
     private int posicion;
 
+    public Resultado(String r001, String p001, TipoPrueba tipoPrueba, String d001, int i) {
+    }
+
     // Getters
 
     public String getId() {
